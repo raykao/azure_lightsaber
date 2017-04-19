@@ -2,8 +2,8 @@ FROM ubuntu:latest
 MAINTAINER Ray Kao <ray.kao@microsoft.com>
 
 WORKDIR /root
-RUN apt-get update -y \
-	&& apt-get install -y \
+RUN apt-get update -y --fix-missing\
+	&& apt-get install -y --no-install-recommends \
 	apt-utils \
 	software-properties-common \
 	git-core \
@@ -13,9 +13,9 @@ RUN apt-get update -y \
 	wget \
 	curl \
 	unzip \
-	apt-transport-https \
-	&& apt-add-repository ppa:ansible/ansible -y \
-	&& apt-get update -y \
+	apt-transport-https
+RUN apt-add-repository ppa:ansible/ansible -y \
+	&& apt-get update -y --fix-missing \
 	&& apt-get install -y ansible \
 	&& apt-get clean \
   	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
