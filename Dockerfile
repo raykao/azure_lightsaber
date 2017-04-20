@@ -27,10 +27,10 @@ RUN apt-get update \
 	&& apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
-RUN sudo apt-get update -y \
-	&& sudo apt-get install -y powershell \
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list
+RUN apt-get update -y \
+	&& apt-get install -y powershell \
 	&& apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
