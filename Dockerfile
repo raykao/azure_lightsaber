@@ -13,19 +13,26 @@ RUN apt-get update -y --fix-missing\
 	wget \
 	curl \
 	unzip \
-	apt-transport-https
-RUN apt-add-repository ppa:ansible/ansible -y \
+	apt-transport-https\
+	&& apt-add-repository ppa:ansible/ansible -y \
 	&& apt-get update -y --fix-missing \
 	&& apt-get install -y ansible \
 	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
 RUN apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
 RUN apt-get update \
 	&& apt-get install azure-cli \
 	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list
+RUN sudo apt-get update -y \
+	&& sudo apt-get install -y powershell \
+	&& apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN wget https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip \
 	&& unzip $(ls | grep terraform) \
