@@ -8,3 +8,20 @@ It helps to quickly bootstrap the tools necessary to deploy Azure services from 
 - terraform
 - packer
 - ansible
+
+## How to use it
+
+1. Install Docker Engine
+- [Mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
+- [Windows](https://docs.docker.com/docker-for-windows/)
+
+2. Run a container:
+```:shell
+$ docker run -it raykao/azure_lightsaber
+```
+
+You will now be inside the container running an instance of the "azure_lightsaber" image.  You will have all of the above tools readily available for you to use to deploy Azure services.
+
+## Next Steps
+
+Download various scripts and examples to deploy Azure services (VMs, Storage, Network, App Services, etc.).
