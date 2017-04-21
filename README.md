@@ -15,7 +15,7 @@ It helps to quickly bootstrap the tools necessary to deploy Azure services from 
 - [Mac](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
 - [Windows](https://docs.docker.com/docker-for-windows/)
 
-2. Run a container:
+2. Run a container
 ```:shell
 $ docker run -it raykao/azure_lightsaber
 ```
@@ -25,3 +25,7 @@ You will now be inside the container running an instance of the "azure_lightsabe
 ## Next Steps
 
 Download various scripts and examples to deploy Azure services (VMs, Storage, Network, App Services, etc.).
+
+## Links
+
+1. [Image Repo](https://hub.docker.com/r/raykao/azure_lightsaber/) on docker hub
