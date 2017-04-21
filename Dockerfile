@@ -13,7 +13,8 @@ RUN apt-get update -y --fix-missing\
 	wget \
 	curl \
 	unzip \
-	apt-transport-https\
+	apt-transport-https \
+	jq \
 	&& apt-add-repository ppa:ansible/ansible -y \
 	&& apt-get update -y --fix-missing \
 	&& apt-get install -y ansible \
