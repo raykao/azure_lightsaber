@@ -15,6 +15,8 @@ RUN apt-get update -y --fix-missing\
 	unzip \
 	apt-transport-https \
 	jq \
+	nano \
+	vim \
 	&& apt-add-repository ppa:ansible/ansible -y \
 	&& apt-get update -y --fix-missing \
 	&& apt-get install -y ansible \
