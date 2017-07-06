@@ -37,7 +37,7 @@ RUN apt-get update -y \
 	&& apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip \
+RUN wget https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip \
 	&& unzip $(ls | grep terraform) \
 	&& rm *.zip \
 	&& mv terraform /usr/bin/
