@@ -37,12 +37,12 @@ RUN apt-get update -y \
 	&& apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN wget https://releases.hashicorp.com/terraform/0.9.3/terraform_0.9.3_linux_amd64.zip \
+RUN https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip \
 	&& unzip $(ls | grep terraform) \
 	&& rm *.zip \
 	&& mv terraform /usr/bin/
 
-RUN wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip \
+RUN wget https://releases.hashicorp.com/packer/1.0.2/packer_1.0.2_linux_amd64.zip \
 	&& unzip $(ls | grep packer) \
 	&& rm *.zip \
 	&& mv packer /usr/bin/
